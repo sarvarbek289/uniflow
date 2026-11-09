@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UniFlow — Smart Student Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{colors:{bg:'#0B1020',card:'#151E33',brand:'#8B5CF6',sky:'#38BDF8'}}}}</script>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="logo"><i data-lucide="graduation-cap"></i></div><span>Uni<b>Flow</b></span></div>
+    <button class="ws" data-act="wsMenu">
+      <div class="avatar sq">U</div>
+      <div><b data-i18n="uniSpace"></b><span id="semLabel"></span></div><i data-lucide="chevron-down" class="muted"></i>
+    </button>
+    <p class="nav-label" data-i18n="workspace"></p>
+    <nav>
+      <button class="nav-item" data-page="overview"><i data-lucide="layout-grid"></i><span data-i18n="nav_overview"></span></button>
+      <button class="nav-item" data-page="tasks"><i data-lucide="square-check-big"></i><span data-i18n="nav_tasks"></span><em class="badge" id="taskBadge" style="font-style:normal">0</em></button>
+      <button class="nav-item" data-page="calendar"><i data-lucide="calendar"></i><span data-i18n="nav_calendar"></span></button>
+      <button class="nav-item" data-page="focus"><i data-lucide="clock"></i><span data-i18n="nav_focus"></span></button>
+      <button class="nav-item" data-page="notes"><i data-lucide="file-text"></i><span data-i18n="nav_notes"></span></button>
+      <button class="nav-item" data-page="analytics"><i data-lucide="chart-column"></i><span data-i18n="nav_analytics"></span></button>
+    </nav>
+    <p class="nav-label" data-i18n="preferences"></p>
+    <button class="nav-item" data-page="settings"><i data-lucide="settings"></i><span data-i18n="nav_settings"></span></button>
+    <div class="upsell"><i data-lucide="sparkles" class="spark"></i><b data-i18n="unlockT"></b><p data-i18n="unlockD"></p><button class="btn btn-p btn-w" data-act="upgrade" data-i18n="upgrade"></button></div>
+    <div class="userbar"><div class="avatar" id="sbAvatar"></div><div><b id="sbName"></b><span id="sbMail"></span></div><button class="icon-btn" data-act="userMenu"><i data-lucide="ellipsis"></i></button></div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn bd burger" data-act="toggleSide"><i data-lucide="menu"></i></button>
+      <div class="ttl"><div class="eyebrow" data-i18n="studentWs"></div><h2 id="pageLabel"></h2></div>
+      <div class="gsearch">
+        <label class="sbox"><i data-lucide="search"></i><input id="gsearch" autocomplete="off" data-i18n-ph="searchAny"><span class="kbd">Ctrl K</span></label>
+        <div class="gres hidden" id="gres"></div>
+      </div>
+      <div class="lang"><button class="lang-btn" data-l="uz">UZ</button><button class="lang-btn" data-l="en">EN</button></div>
+      <button class="icon-btn bd" data-act="bell" id="bellBtn"><i data-lucide="bell"></i><span class="dot" id="bellDot"></span></button>
+    </header>
+    <main class="view" id="view"></main>
+  </div>
+</div>
+<button class="help" data-act="help"><i data-lucide="circle-help"></i></button>
+<div id="modal-root"></div>
+<div class="toasts" id="toasts"></div>
+<script src="js/storage.js"></script>
+<script src="js/language.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
